@@ -98,7 +98,7 @@ export default function CertificationContent() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center px-4 py-2 border border-white/10 text-[#697565] font-mono text-[10px] uppercase tracking-widest hover:bg-[#697565] hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(105,117,101,0)] hover:shadow-[0_0_15px_rgba(105,117,101,0.3)]"
               >
-                View_Record
+                View Record
               </a>
             </div>
           </div>

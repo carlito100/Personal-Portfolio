@@ -159,15 +159,15 @@ export default function ContactContent() {
         <div className="lg:col-span-4 flex flex-col justify-end gap-12 border-l border-white/5 pl-8 lg:pl-12">
           <div className="space-y-6">
             <div>
-              <p className="text-[#697565] font-mono text-[10px] uppercase mb-2">Location_Protocol</p>
-              <p className="text-sm text-gray-400">Davao City, Philippines [8700]</p>
+              <p className="text-[#697565] font-mono text-[10px] uppercase mb-2">Location</p>
+              <p className="text-sm text-gray-400">Davao City, Philippines [8000]</p>
             </div>
 
             <div>
               <p className="text-[#697565] font-mono text-[10px] uppercase mb-2">Social_Nodes</p>
               <div className="flex flex-col gap-2">
-                <a href="#" className="text-sm text-gray-400 hover:text-[#697565] transition-colors underline decoration-white/5">LinkedIn/rica-carl</a>
-                <a href="#" className="text-sm text-gray-400 hover:text-[#697565] transition-colors underline decoration-white/5">GitHub/rica-carl</a>
+                <a href="https://www.linkedin.com/in/carl-andrei-ricafort-b9a050389" className="text-sm text-gray-400 hover:text-[#697565] transition-colors underline decoration-white/5">LinkedIn/Carl Andrei Ricafort</a>
+                <a href="https://github.com/carlito100" className="text-sm text-gray-400 hover:text-[#697565] transition-colors underline decoration-white/5">GitHub/carlito100</a>
               </div>
             </div>
 
