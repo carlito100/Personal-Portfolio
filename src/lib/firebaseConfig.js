@@ -16,10 +16,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-// ✅ Firestore (THIS WAS MISSING)
 export const db = getFirestore(app);
 
-// optional analytics (safe only in browser)
 let analytics;
 if (typeof window !== "undefined") {
   analytics = getAnalytics(app);

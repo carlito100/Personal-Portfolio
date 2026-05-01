@@ -24,20 +24,20 @@ export default function Home() {
         <div className="w-full lg:w-[60%] flex items-center z-20 px-6 sm:px-12 lg:pl-32 py-20 lg:py-24 relative">
           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 lg:w-96 lg:h-96 bg-[#697565]/10 blur-[120px] lg:blur-[150px] pointer-events-none" />
           
-          <div className="max-w-2xl relative z-10">
-            <div className="flex items-center gap-4 mb-6 lg:mb-8">
-              <span className="w-8 lg:w-12 h-[1px] bg-[#697565]"></span>
-              <span className="text-[10px] lg:text-[11px] font-mono tracking-[0.4em] uppercase text-[#697565] font-semibold">
-                Strategic Developer
-              </span>
+          <div className="max-w-3xl relative z-10">
+            <h1 className="text-7xl sm:text-8xl lg:text-[9rem] font-bold tracking-tighter mb-4 lg:mb-6 leading-[0.85] lg:leading-[0.8]">
+              Carl Andrei <br />
+              <span className="text-[#697565] drop-shadow-md">Ricafort</span>
+            </h1>
+            
+            <div className="flex items-center gap-4 mb-8 lg:mb-12">
+              <span className="w-8 lg:w-16 h-[2px] bg-[#697565]"></span>
+              <h2 className="text-sm sm:text-lg lg:text-xl font-mono tracking-[0.3em] uppercase text-gray-300 font-medium">
+                Full-Stacked Developer
+              </h2>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter mb-8 lg:mb-10 leading-[0.9] lg:leading-[0.85]">
-              Carl Andrei <br />
-              <span className="text-[#697565] drop-shadow-sm">Ricafort</span>
-            </h1>
-
-            <p className="text-lg lg:text-2xl text-gray-400 leading-relaxed mb-10 lg:mb-12 max-w-lg font-light">
+            <p className="text-lg lg:text-2xl text-gray-400 leading-relaxed mb-10 lg:mb-12 max-w-xl font-light">
   Delivering reliable solutions through <span className="text-white border-b border-[#697565]/30">technical support</span> and 
   <span className="text-white"> UI-focused development</span>, backed by strong teamwork and efficient problem-solving.
 </p>
@@ -107,18 +107,6 @@ export default function Home() {
          <ContactContent />
       </section>
 
-      <style jsx>{`
-        @keyframes shimmer {
-          0% { background-position: 200% 0; }
-          100% { background-position: -200% 0; }
-        }
-        :global(html) {
-          scroll-behavior: smooth;
-        }
-        section {
-          scroll-margin-top: 80px;
-        }
-      `}</style>
     </div>
   );
 }
