@@ -6,7 +6,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mon
 
 export default function App({ Component, pageProps }) {
   return (
-    <main className={`${outfit.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+    <main className={`${outfit.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[#050505]`}>
       <Component {...pageProps} />
     </main>
   );

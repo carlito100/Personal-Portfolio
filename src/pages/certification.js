@@ -1,3 +1,70 @@
+import useScrollReveal from "../lib/useScrollReveal";
+
+const CertItem = ({ cert, index }) => {
+  const [ref, isVisible] = useScrollReveal();
+
+  return (
+    <div
+      ref={ref}
+      className={`group relative flex flex-col lg:flex-row lg:items-center gap-8 p-6 md:p-8 bg-white/[0.02] border border-white/5 hover:border-[#697565]/40 transition-all duration-1000 ease-[cubic-bezier(0.2,0.8,0.2,1)] overflow-hidden ${
+        isVisible 
+          ? "translate-x-0 opacity-100" 
+          : "translate-x-32 opacity-0"
+      }`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      {/* IMAGE PREVIEW HOLDER */}
+      <div className="relative z-10 w-full lg:w-48 h-32 flex-shrink-0 bg-black border border-white/10 group-hover:border-[#697565]/50 transition-colors overflow-hidden">
+        <img 
+          src={cert.image} 
+          alt={`${cert.title} preview`}
+          className="w-full h-full object-cover opacity-30 grayscale group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+        />
+        {/* Scanline Effect Overlay */}
+        <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_2px,3px_100%] z-20 opacity-20" />
+      </div>
+
+      {/* INFO CONTENT */}
+      <div className="relative z-10 flex-1 space-y-2">
+        <div className="flex items-center gap-3">
+          <div className="w-1.5 h-1.5 bg-[#697565] rotate-45" />
+          <p className="text-[#697565] font-mono text-[10px] uppercase tracking-widest">
+            {cert.type}
+          </p>
+        </div>
+        <h4 className="text-2xl lg:text-3xl font-bold text-gray-200 group-hover:text-white transition-colors">
+          {cert.title}
+        </h4>
+        <p className="text-gray-500 text-sm font-mono tracking-tight">
+          {cert.stack}
+        </p>
+      </div>
+
+      {/* ACTION AREA */}
+      <div className="relative z-10 flex flex-row lg:flex-col items-center lg:items-end gap-6 lg:gap-4">
+        <div className="text-left lg:text-right">
+          <p className="text-gray-400 text-[10px] font-mono uppercase">
+            Issued By
+          </p>
+          <p className="text-gray-300 text-xs font-bold uppercase tracking-tighter">
+            {cert.provider}
+          </p>
+        </div>
+
+        {/* VIEW BUTTON - Redirects to PDF */}
+        <a
+          href={cert.fileName}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center px-4 py-2 border border-white/10 text-[#697565] font-mono text-[10px] uppercase tracking-widest hover:bg-[#697565] hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(105,117,101,0)] hover:shadow-[0_0_15px_rgba(105,117,101,0.3)]"
+        >
+          View Record
+        </a>
+      </div>
+    </div>
+  );
+};
+
 export default function CertificationContent() {
   const certs = [
     {
@@ -6,7 +73,7 @@ export default function CertificationContent() {
       provider: "Udemy Professional Development",
       type: "Full-Stack Web Development Project",
       fileName: "/CERTIFICATE.pdf",
-      image: "/cms.jpg", // Replace with specific image if available
+      image: "/cms.jpg",
     },
     {
       title: "Web Development Bootcamp",
@@ -49,59 +116,7 @@ export default function CertificationContent() {
       {/* CERTIFICATION LIST */}
       <div className="space-y-6">
         {certs.map((cert, index) => (
-          <div
-            key={index}
-            className="group relative flex flex-col lg:flex-row lg:items-center gap-8 p-6 md:p-8 bg-white/[0.02] border border-white/5 hover:border-[#697565]/40 transition-all duration-500 overflow-hidden"
-          >
-            {/* IMAGE PREVIEW HOLDER */}
-            <div className="relative z-10 w-full lg:w-48 h-32 flex-shrink-0 bg-black border border-white/10 group-hover:border-[#697565]/50 transition-colors overflow-hidden">
-              <img 
-                src={cert.image} 
-                alt={`${cert.title} preview`}
-                className="w-full h-full object-cover opacity-30 grayscale group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
-              />
-              {/* Scanline Effect Overlay */}
-              <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_2px,3px_100%] z-20 opacity-20" />
-            </div>
-
-            {/* INFO CONTENT */}
-            <div className="relative z-10 flex-1 space-y-2">
-              <div className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 bg-[#697565] rotate-45" />
-                <p className="text-[#697565] font-mono text-[10px] uppercase tracking-widest">
-                  {cert.type}
-                </p>
-              </div>
-              <h4 className="text-2xl lg:text-3xl font-bold text-gray-200 group-hover:text-white transition-colors">
-                {cert.title}
-              </h4>
-              <p className="text-gray-500 text-sm font-mono tracking-tight">
-                {cert.stack}
-              </p>
-            </div>
-
-            {/* ACTION AREA */}
-            <div className="relative z-10 flex flex-row lg:flex-col items-center lg:items-end gap-6 lg:gap-4">
-              <div className="text-left lg:text-right">
-                <p className="text-gray-400 text-[10px] font-mono uppercase">
-                  Issued By
-                </p>
-                <p className="text-gray-300 text-xs font-bold uppercase tracking-tighter">
-                  {cert.provider}
-                </p>
-              </div>
-
-              {/* VIEW BUTTON - Redirects to PDF */}
-              <a
-                href={cert.fileName}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center px-4 py-2 border border-white/10 text-[#697565] font-mono text-[10px] uppercase tracking-widest hover:bg-[#697565] hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(105,117,101,0)] hover:shadow-[0_0_15px_rgba(105,117,101,0.3)]"
-              >
-                View Record
-              </a>
-            </div>
-          </div>
+          <CertItem key={index} cert={cert} index={index} />
         ))}
       </div>
 

@@ -2,15 +2,15 @@ import { useState, useEffect } from "react";
 
 const Logo = () => (
   <div className="flex items-center justify-center gap-3 group cursor-pointer" onClick={() => window.scrollTo(0,0)}>
-    <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[#697565] to-[#3a4237] shadow-[0_0_15px_rgba(105,117,101,0.3)] transition-transform duration-500 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(105,117,101,0.5)]">
-      <div className="absolute inset-[2px] rounded-lg bg-[#1a1c1a] flex items-center justify-center">
-        <span className="font-mono font-bold text-lg tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-400">
-          C<span className="text-[#697565]">R</span>
-        </span>
-      </div>
+    <div className="relative flex items-center justify-center w-10 h-10 rounded-xl overflow-hidden bg-gradient-to-br from-[#697565] to-[#3a4237] shadow-[0_0_15px_rgba(105,117,101,0.3)] transition-transform duration-500 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(105,117,101,0.5)]">
+      <img 
+        src="./jiji.jpeg" 
+        alt="Logo" 
+        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+      />
     </div>
     <span className="hidden sm:block font-sans font-semibold tracking-wide text-white text-sm opacity-90 group-hover:opacity-100 transition-opacity duration-300">
-      Carl<span className="text-[#697565]">.</span>
+      Portfolio<span className="text-[#697565]">.</span>
     </span>
   </div>
 );
